@@ -1,11 +1,11 @@
 package com.legacytest;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.legacytest.exception.UserNotLoggedInException;
@@ -13,7 +13,6 @@ import com.legacytest.trip.Trip;
 import com.legacytest.trip.TripService;
 import com.legacytest.user.User;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 public class TripServiceTest {
@@ -51,7 +50,7 @@ public class TripServiceTest {
         bob.addTrip(us);
         bob.addTrip(canada);
 
-        assertThat(tripService.getTripsByUser(bob), Matchers.containsInAnyOrder(bob.trips().toArray()));
+        assertThat(tripService.getTripsByUser(bob), containsInAnyOrder(bob.trips().toArray()));
     }
 
     // TODO: Test with User friend empty
